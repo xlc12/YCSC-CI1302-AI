@@ -1,0 +1,52 @@
+\SI
+/SI
+*.si4project
+*.IAB
+*.IAD
+*.IMB
+*.PFI
+*.PO
+*.PR
+*.PRI
+*.PS
+*.WK3
+*.o
+*.d
+*.prefs
+*.SearchResults
+*.elf
+*.lst
+*/source_file.mk
+*.map
+/build_temp/
+language.settings.xml
+*.mp3
+asr.bin
+dnn.bin
+user_code.bin
+*.xls.bin
+*.xlsx.bin
+user_file.bin
+projects/*/firmware/*.bin
+\[0\]code.bin
+
+/.metadata/
+projects/*/firmware/voice/voice.bin
+projects/*/project_file/build
+
+# ===== 用户补充 =====
+# 其它目录下的构建中间产物（如 components/*/project_file/build）
+**/project_file/build/
+# 调试用的日志与抓包文件
+*.log
+*.pcapng
+# 编辑器/系统临时文件
+Thumbs.db
+Desktop.ini
+.DS_Store
+__pycache__/
+*.pyc
+*.bak
+# Office 打开文件时的临时锁文件（如 ~$xxx.xlsx）
+~$*
+
