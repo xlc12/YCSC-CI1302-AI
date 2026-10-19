@@ -7,10 +7,10 @@
 /*板级配置更多细节请查看:https://document.chipintelli.com/硬件资料-->模块手册
 chipintelli提供的部分开发板和模组，可以通过下面的宏选择，也可以参考开发板的板级配置文
 件添加自定义板级配置文件*/
-#define USE_CI_D02GS01J_BOARD       0   //CI-D0XGS01J，端子模块，芯片型号必须设置为1302
+#define USE_CI_D02GS01J_BOARD       1   //CI-D0XGS01J，端子模块，芯片型号必须设置为1302
 #define USE_CI_D02GS02S_BOARD       0   //CI-D0XGS02S，SMT模块，芯片型号必须设置为1302
 #define USE_CI_D12GS01J_BOARD       0   //CI-D0XGS01J，端子模块，芯片型号必须设置为1312JE
-#define USE_CI_D06GT01D_BOARD       1   //CI-D06GT01D，开发版，芯片型号必须设置为1306
+#define USE_CI_D06GT01D_BOARD       0   //CI-D06GT01D，开发版，芯片型号必须设置为1306
 #define USE_CI_E12GS02J_BOARD       0   //CI-E12GS02J，开发版，芯片型号必须设置为231x
 #define USE_CI_D06GT01J_BOARD       0   //CI_D06GT01J, 开发板，型号必须为设置1306-仅配置支持双mic 算法+AEC，其他配置不支持
 #define USE_CI_E0XGTD02S_BOARD      0   //CI-E06GT02S, 开发板2305/2306
