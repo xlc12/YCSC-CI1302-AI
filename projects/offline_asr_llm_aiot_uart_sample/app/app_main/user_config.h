@@ -161,8 +161,8 @@ chipintelli提供的部分开发板和模组，可以通过下面的宏选择，
 //压缩算法选择-pcm和speex和opus只能三选一,不能同时支持; opus压缩+mp3播放不支持自学习，推荐推荐设置SYS_HEAP_SIZE = (1024*110))
 #if (AUDIO_DATA_UPLOAD_BY_UART)
 #define AUDIO_COMPRESS_RECORD_DISABLE                     0            //(务必在makefile中配置宏AIOT_AUDIO_COMPRESS_TYPE=0)PCM上传数据，不做数据压缩 推荐设置SYS_HEAP_SIZE = (1024*130))
-#define AUDIO_COMPRESS_SPEEX_ENABLE                       1            //(务必在makefile中配置宏AIOT_AUDIO_COMPRESS_TYPE=1) 1-处理使能SPEEX压缩后的数据 2-使能opus压缩；推荐设置SYS_HEAP_SIZE = (1024*110)) 
-#define AUDIO_COMPRESS_OPUS_ENABLE                        0            //(务必在makefile中配置宏AIOT_AUDIO_COMPRESS_TYPE=2) 1-处理使能SPEEX压缩后的数据 2-使能opus压缩 OPUS比speex多消耗31KB内存,目前仅USE_AEC_DENOISE_NN算法支持，其余内存不够
+#define AUDIO_COMPRESS_SPEEX_ENABLE                       0            //(务必在makefile中配置宏AIOT_AUDIO_COMPRESS_TYPE=1) 1-处理使能SPEEX压缩后的数据 2-使能opus压缩；推荐设置SYS_HEAP_SIZE = (1024*110)) 
+#define AUDIO_COMPRESS_OPUS_ENABLE                        1            //(务必在makefile中配置宏AIOT_AUDIO_COMPRESS_TYPE=2) 1-处理使能SPEEX压缩后的数据 2-使能opus压缩 OPUS比speex多消耗31KB内存,目前仅USE_AEC_DENOISE_NN算法支持，其余内存不够
 #define AUDIO_COMPRESS_G722_ENABLE                        0            //(务必在makefile中配置宏AIOT_AUDIO_COMPRESS_TYPE=0)20ms压缩一次，320个点，640字节压缩为160字节，压缩率为4:1 推荐设置SYS_HEAP_SIZE = (1024*130)) 
 #endif
 //网络数据播放类型选择-mp3和pcm和opus只能三选一，不能同时支持;
@@ -187,10 +187,10 @@ chipintelli提供的部分开发板和模组，可以通过下面的宏选择，
 #define PCM_MSG_STREAM_NUM                               30              //原始数据stream buf大小   //30
 #define LOCAL_REC_VAD_END_ENABLE                          1              //本地识别后立即停止VAD,若不停止，在半双工并且本地词条有播报情况下,播报时会丢录音
 //NN_VAD配置(10ms一帧)
-#define NN_VAD_SENSITIVITY                                1              //灵敏度等级，设置0,1,2，对应低，中，高。灵敏度等级越高越灵敏;配合tvad_valid_num调试TVAD的灵敏度
-#define NN_VAD_FRONT_PORCH                                35             //后窗口大小， VAD_ON->VAD_END 最多持续的帧数 ；取值20~40（过小会导致说话停顿就VAD_END了)
+#define NN_VAD_SENSITIVITY                                0              //灵敏度等级，设置0,1,2，对应低，中，高。灵敏度等级越高越灵敏;配合tvad_valid_num调试TVAD的灵敏度。改0（低）：环境嘈杂时降低噪声误触发（VAD_START 打断 TTS）
+#define NN_VAD_FRONT_PORCH                                25             //后窗口大小， VAD_ON->VAD_END 最多持续的帧数 ；取值20~40（过小会导致说话停顿就VAD_END了)。改25（250ms）：说完话更快触发VAD_END上报
 #define NN_VAD_VALID_CHECK_MODE                           1              //VAD语音有效性检查模型：1-前置检查，等待判断语音有效后，再回退语音上传 2-后置检查，优先实时上传语音，检查有效性结果后通知WIFI端,建议关闭云端响应超时功能使能
-#define NN_VAD_VALID_NUM                                  25             //VAD_ON 状态的至少满足的有效帧数，大于该阈值则视为语音有效，低于该阈值识别结果无效
+#define NN_VAD_VALID_NUM                                  25             //VAD_ON 状态的至少满足的有效帧数，大于该阈值则视为语音有效，低于该阈值识别结果无效。改25（250ms）：有效判定窗加长，滤掉短促环境噪声（关门声、碰撞声等），降低误打断
 
 //超时强制VAD END检测
 #define VAD_TIMEOUT_CHECK_ENABLE                          1              //0-不进行超时检测 1-进行超时检测-不可修改

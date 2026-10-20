@@ -43,6 +43,6 @@ IIS_RECORD_USE_BNPU_SRAM_SIZE = 0*1024
 #---是否开启动态ALC功能，1:开启，0:关闭; -单mic算法，仅单mic可用
 USE_ALC_AUTO_SWITCH_MODULE     := 0
 #---AIOT 音频压缩类型(仅uart_sample使用) 	#0-null  1-speex  2-opus 3-g722
-AIOT_AUDIO_COMPRESS_TYPE       := 1
+AIOT_AUDIO_COMPRESS_TYPE       := 2
 ########################################################################
 
