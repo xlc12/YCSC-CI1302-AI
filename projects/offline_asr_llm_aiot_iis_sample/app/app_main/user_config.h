@@ -7,10 +7,10 @@
 /*板级配置更多细节请查看:https://document.chipintelli.com/硬件资料-->模块手册
 chipintelli提供的部分开发板和模组，可以通过下面的宏选择，也可以参考开发板的板级配置文
 件添加自定义板级配置文件*/
-#define USE_CI_D02GS01J_BOARD       0   //CI-D0XGS01J，端子模块，芯片型号必须设置为1302
+#define USE_CI_D02GS01J_BOARD       1   //CI-D0XGS01J，端子模块，芯片型号必须设置为1302
 #define USE_CI_D02GS02S_BOARD       0   //CI-D0XGS02S，SMT模块，芯片型号必须设置为1302
 #define USE_CI_D12GS01J_BOARD       0   //CI-D0XGS01J，端子模块，芯片型号必须设置为1312JE
-#define USE_CI_D06GT01D_BOARD       1   //CI-D06GT01D，开发版，芯片型号必须设置为1306
+#define USE_CI_D06GT01D_BOARD       0   //CI-D06GT01D，开发版，芯片型号必须设置为1306
 #define USE_CI_E12GS02J_BOARD       0   //CI-E12GS02J，开发版，芯片型号必须设置为231x
 #define USE_CI_D06GT01J_BOARD       0   //CI_D06GT01J, 开发板，型号必须为设置1306-仅配置支持双mic 算法+AEC，其他配置不支持
 #define USE_CI_E0XGTD02S_BOARD      0   //CI-E06GT02S, 开发板2305/2306
@@ -54,7 +54,7 @@ chipintelli提供的部分开发板和模组，可以通过下面的宏选择，
 /*注意!! 外部IIS0需要根据SDK当前需求输入正确的信号，例如采样率、通道数和左右通道的数据（mic or ref）*/
 #define MIC_RECORD_IIS_SELECT           0 //MIC输入的IIS选择:0，内部codec IIS1   1,外部IIS0;
 
-#define MIC_DIFF_SINGLE                 0   /*1,单端。0，差分（通用模块都是差分模式，省成本的模块为单端(MICN_L 接GND)时，需要配置为SINGLE）)*/
+#define MIC_DIFF_SINGLE                 1   /*1,单端。0，差分（通用模块都是差分模式，省成本的模块为单端(MICN_L 接GND)时，需要配置为SINGLE）)*/
 #define REF_DIFF_SINGLE                 1   /*1,单端。0，差分（D类功放是采用单mic aec 使用 差分 mic ; AB类功放是采用单mic aec 使用 单端 mic)*/
 
 /*1、双mic + aec算法必须外部挂codec作为信号回采(推荐7243e)
@@ -97,7 +97,7 @@ chipintelli提供的部分开发板和模组，可以通过下面的宏选择，
 #endif
 
 #if USE_CI_D02GS01J_BOARD || USE_CI_D02GS02S_BOARD
-#define USE_1302_UART0_MODE             1  //1302芯片引脚不足，仅能使用串口0；选择串口0的用途 1：日志 2：WIFI通信串口
+#define USE_1302_UART0_MODE             2  //1302芯片引脚不足，仅能使用串口0；选择串口0的用途 1：日志 2：WIFI通信串口
 #endif
 
 #if (USE_1302_UART0_MODE == 2)
