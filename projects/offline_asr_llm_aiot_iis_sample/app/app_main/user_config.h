@@ -54,7 +54,7 @@ chipintelli提供的部分开发板和模组，可以通过下面的宏选择，
 /*注意!! 外部IIS0需要根据SDK当前需求输入正确的信号，例如采样率、通道数和左右通道的数据（mic or ref）*/
 #define MIC_RECORD_IIS_SELECT           0 //MIC输入的IIS选择:0，内部codec IIS1   1,外部IIS0;
 
-#define MIC_DIFF_SINGLE                 1   /*1,单端。0，差分（通用模块都是差分模式，省成本的模块为单端(MICN_L 接GND)时，需要配置为SINGLE）)*/
+#define MIC_DIFF_SINGLE                 0   /*1,单端。0，差分（通用模块都是差分模式，省成本的模块为单端(MICN_L 接GND)时，需要配置为SINGLE）)*/
 #define REF_DIFF_SINGLE                 1   /*1,单端。0，差分（D类功放是采用单mic aec 使用 差分 mic ; AB类功放是采用单mic aec 使用 单端 mic)*/
 
 /*1、双mic + aec算法必须外部挂codec作为信号回采(推荐7243e)
